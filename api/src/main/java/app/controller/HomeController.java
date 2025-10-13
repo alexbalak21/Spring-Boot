@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @RestController
 public class HomeController {
 
-    @GetMapping("/")
+    @GetMapping("/api")
     public String home(HttpServletResponse response) {
         response.setContentType("application/json");
         return "{\"message\": \"Hello from Spring Boot\"}";
