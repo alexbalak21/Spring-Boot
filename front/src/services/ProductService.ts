@@ -8,9 +8,6 @@ export interface Product {
   updatedAt?: string | null;
 }
 
-type ProductInput = Omit<Product, 'id' | 'createdAt' | 'updatedAt'>;
-
-type ProductUpdate = Partial<ProductInput>;
 
 export const ProductService = {
   async getAllProducts(): Promise<Product[]> {
