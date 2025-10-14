@@ -1,29 +1,28 @@
-import './App.css'
-import axios from 'axios'
-import { useState } from 'react'
+import { useState } from 'react';
+import { ProductForm } from './components/ProductForm';
+import { ProductList } from './components/ProductList';
+import './App.css';
 
-const MESSAGE_URL = '/api'
+function App() {
+  const [refreshKey, setRefreshKey] = useState(0);
 
-export default function App() {
-  const [message, setMessage] = useState('')
-
-  const getMessage = async () => {
-    try {
-      const response = await axios.get(MESSAGE_URL)
-      setMessage(response.data.message)
-    } catch (error) {
-      console.error('Error fetching message:', error)
-      setMessage('Failed to load message. Check console for details.')
-    }
-  }
+  const handleProductCreated = () => {
+    setRefreshKey(prev => prev + 1); // This will trigger a re-render of ProductList
+  };
 
   return (
-    <main>  
-    <div>
-      <h1>Spring Boot</h1>
-      <p>{message}</p>
-      <button onClick={getMessage}>Get Message</button>
+    <div className="app">
+      <header>
+        <h1>Product Management</h1>
+      </header>
+      <main>
+        <div className="container">
+          <ProductForm onProductCreated={handleProductCreated} />
+          <ProductList key={refreshKey} />
+        </div>
+      </main>
     </div>
-    </main>
-  )
+  );
 }
+
+export default App;
