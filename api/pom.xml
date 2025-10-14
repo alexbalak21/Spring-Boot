@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>app</groupId>
 	<artifactId>app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>app</name>
 	<description>Spring Test Server App</description>
 	<url/>
@@ -72,6 +71,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.4.0</version>
 			</plugin>
 		</plugins>
 	</build>
