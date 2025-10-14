@@ -1,4 +1,4 @@
-const PRODUCTS_URL = '/api/products';
+const API_URL = '/api/products';
 
 export interface Product {
   id?: number;
@@ -14,7 +14,7 @@ type ProductUpdate = Partial<ProductInput>;
 
 export const ProductService = {
   async getAllProducts(): Promise<Product[]> {
-    const response = await fetch(PRODUCTS_URL);
+    const response = await fetch(API_URL);
     if (!response.ok) {
       throw new Error('Failed to fetch products');
     }
@@ -22,7 +22,7 @@ export const ProductService = {
   },
 
   async createProduct(product: Omit<Product, 'id' | 'createdAt' | 'updatedAt'>): Promise<Product> {
-    const response = await fetch(PRODUCTS_URL, {
+    const response = await fetch(API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export const ProductService = {
   },
 
   async updateProduct(id: number, product: Partial<Product>): Promise<Product> {
-    const response = await fetch(`${PRODUCTS_URL}/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export const ProductService = {
   },
 
   async deleteProduct(id: number): Promise<void> {
-    const response = await fetch(`${PRODUCTS_URL}/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {

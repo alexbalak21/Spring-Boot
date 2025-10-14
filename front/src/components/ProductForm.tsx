@@ -59,9 +59,11 @@ export const ProductForm = ({ onProductCreated }: ProductFormProps) => {
             required
           />
         </div>
-        <button type="submit" disabled={isSubmitting}>
+        <div className='buttonContainer'>
+          <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Adding...' : 'Add Product'}
         </button>
+        </div>
       </form>
     </div>
   );
