@@ -1,83 +1,88 @@
 package app.model;
 
-import jakarta.persistence.*;
+import java.util.Objects;
 
-@Entity
-@Table(name = "products")
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Column(nullable = false)
     private String name;
-    
-    @Column(nullable = false)
-    private double price;
-    
-    @Column(name = "created_at")
+    private Double price;
     private java.time.LocalDateTime createdAt;
-    
-    @Column(name = "updated_at")
     private java.time.LocalDateTime updatedAt;
-    
+
     public Product() {
     }
-    
-    public Product(String name, double price) {
+
+    public Product(Long id, String name, Double price, java.time.LocalDateTime createdAt, java.time.LocalDateTime updatedAt) {
+        this.id = id;
         this.name = name;
         this.price = price;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
-    
-    // Getters
+
     public Long getId() {
         return id;
     }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public double getPrice() {
-        return price;
-    }
-    
-    public java.time.LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-    
-    public java.time.LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-    
-    // Setters
+
     public void setId(Long id) {
         this.id = id;
     }
-    
+
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
-    
-    public void setPrice(double price) {
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
         this.price = price;
     }
-    
+
+    public java.time.LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
     public void setCreatedAt(java.time.LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-    
+
+    public java.time.LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
     public void setUpdatedAt(java.time.LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-    
-    @PrePersist
-    protected void onCreate() {
-        createdAt = java.time.LocalDateTime.now();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id) &&
+               Objects.equals(name, product.name) &&
+               Objects.equals(price, product.price) &&
+               Objects.equals(createdAt, product.createdAt) &&
+               Objects.equals(updatedAt, product.updatedAt);
     }
-    
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = java.time.LocalDateTime.now();
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price, createdAt, updatedAt);
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+               "id=" + id +
+               ", name='" + name + '\'' +
+               ", price=" + price +
+               '}';
     }
 }
