@@ -15,5 +15,4 @@ public class HomeController {
         response.setContentType("application/json");
         return "{\"message\": \"Hello from Spring Boot\"}";
     }
-    
 }
