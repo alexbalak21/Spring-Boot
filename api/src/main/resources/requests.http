@@ -26,6 +26,24 @@ Content-Type: application/json
     "price": 20.2
 }
 
+### REGISTER
+POST http://localhost:8100/api/auth/register
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "password123"
+}
+
+### LOGIN
+POST http://localhost:8100/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "password123"
+}
+
 ###PUT
 PUT http://localhost:8100/api/products/1
 Content-Type: application/json
@@ -54,4 +72,23 @@ Content-Type: application/json
 {
     "name": "Product 1",
     "price": 10.1
+}
+
+### REGISTER
+POST http://localhost:8100/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "User",
+    "email": "user@example.com",
+    "password": "password123"
+}
+
+### LOGIN
+POST http://localhost:8100/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "password123"
 }

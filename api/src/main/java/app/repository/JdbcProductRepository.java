@@ -57,8 +57,12 @@ public class JdbcProductRepository implements ProductRepository {
             return ps;
         }, keyHolder);
         
-        long id = keyHolder.getKey() != null ? keyHolder.getKey().longValue() : -1;
-        return findById(id).orElse(product);
+        Number key = keyHolder.getKey();
+        if (key == null) {
+            throw new IllegalStateException("Failed to retrieve generated key after insert");
+        }
+        long id = key.longValue();
+        return findById(id).orElseThrow(() -> new IllegalStateException("Failed to retrieve saved product"));
     }
 
     @Override
