@@ -1,4 +1,4 @@
-# Authentication Flow Documentation
+# Authentication Workflow Documentation
 
 This document explains the authentication flow in the Spring Boot application, covering both successful and failed authentication scenarios.
 

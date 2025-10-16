@@ -14,7 +14,7 @@
    - [DTOs](#dtos)
    - [Exceptions](#exceptions)
 5. [Authentication Flow](#authentication-flow)
-   - [Detailed Authentication Documentation](AUTHENTICATION_FLOW.md)
+   - [Detailed Authentication Documentation](AUTH_WORKFLOW.md)
 6. [Error Handling](#error-handling)
 7. [Database Schema](#database-schema)
 
@@ -281,7 +281,7 @@ The authentication system uses JWT (JSON Web Tokens) for stateless authenticatio
 - Comprehensive error handling
 - Refresh token support (if implemented)
 
-For complete documentation, see: [AUTHENTICATION_FLOW.md](AUTHENTICATION_FLOW.md)
+For complete documentation, see: [AUTH_WORKFLOW.md](AUTH_WORKFLOW.md)
 
 1. **Registration**:
    - Client sends POST request to `/api/auth/register` with user details
