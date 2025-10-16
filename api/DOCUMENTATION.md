@@ -14,6 +14,7 @@
    - [DTOs](#dtos)
    - [Exceptions](#exceptions)
 5. [Authentication Flow](#authentication-flow)
+   - [Detailed Authentication Documentation](AUTHENTICATION_FLOW.md)
 6. [Error Handling](#error-handling)
 7. [Database Schema](#database-schema)
 
@@ -270,6 +271,17 @@ src/main/java/app/
 - **Purpose**: Thrown during authentication/authorization failures
 
 ## Authentication Flow
+
+The authentication system uses JWT (JSON Web Tokens) for stateless authentication. It includes user registration, login, and protected endpoint access with role-based authorization.
+
+**Key Features**:
+- Secure password hashing with BCrypt
+- JWT token-based authentication
+- Role-based access control
+- Comprehensive error handling
+- Refresh token support (if implemented)
+
+For complete documentation, see: [AUTHENTICATION_FLOW.md](AUTHENTICATION_FLOW.md)
 
 1. **Registration**:
    - Client sends POST request to `/api/auth/register` with user details

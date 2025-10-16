@@ -4,7 +4,7 @@
 
 
 ### REGISTER
-POST /auth/register
+POST {{baseUrl}}/auth/register
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
     "email": "user@example.com",
-    "password": "password123"
+    "password": "password1234"
 }
 
 @token = {{login.response.body.token}}
