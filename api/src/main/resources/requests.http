@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
     "email": "user@example.com",
-    "password": "password1234"
+    "password": "password123"
 }
 
 @token = {{login.response.body.token}}
@@ -47,6 +47,17 @@ Authorization: Bearer {{token}}
 GET {{baseUrl}}/products
 Content-Type: application/json
 Authorization: Bearer {{token}}
+
+###SET COOKIE
+GET {{baseUrl}}/cookie
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###GET COOKIE
+GET {{baseUrl}}/cookie/read
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
 
 
 
@@ -106,3 +117,4 @@ Content-Type: application/json
     "name": "Product 1",
     "price": 10.1
 }
+
